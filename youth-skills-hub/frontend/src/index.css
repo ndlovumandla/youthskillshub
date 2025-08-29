@@ -1,0 +1,284 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Press Start 2P', monospace;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark;
+  color: #00ff00;
+  background-color: #000000;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    @apply bg-black text-green-400;
+    background: linear-gradient(45deg, #000000 0%, #0a0a0a 50%, #000000 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    font-family: 'Press Start 2P', monospace;
+  }
+}
+
+@layer components {
+  .retro-border {
+    @apply border-2 border-green-400;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+  }
+
+  .retro-button {
+    @apply bg-black text-green-400 border-2 border-green-400 px-4 py-2 font-mono;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .retro-button:hover {
+    @apply bg-green-400 text-black;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.6);
+    transform: translateY(-2px);
+  }
+
+  .retro-button:active {
+    transform: translateY(0);
+  }
+
+  .retro-input {
+    @apply bg-black border-2 border-green-400 text-green-400 p-3 font-mono w-full;
+    box-shadow: inset 0 0 10px rgba(0, 255, 0, 0.2);
+  }
+
+  .retro-input:focus {
+    @apply border-cyan-400;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+    outline: none;
+  }
+
+  .retro-card {
+    @apply bg-black border-2 border-green-400 p-6 m-4;
+    background: linear-gradient(135deg, rgba(0, 255, 0, 0.05) 0%, rgba(0, 255, 255, 0.05) 100%);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+    position: relative;
+  }
+
+  .retro-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #00ff00, #00ffff, #ff00ff, #ffff00);
+    border-radius: 4px;
+    z-index: -1;
+    opacity: 0.3;
+    animation: borderGlow 3s ease-in-out infinite;
+  }
+
+  .retro-header {
+    @apply border-b-2 border-green-400 p-4 mb-6;
+    background: linear-gradient(90deg, rgba(0, 255, 0, 0.1) 0%, rgba(0, 255, 255, 0.1) 100%);
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.4);
+  }
+
+  .retro-nav {
+    @apply flex space-x-4;
+  }
+
+  .retro-nav a {
+    @apply text-green-400 hover:text-cyan-400 transition-colors duration-300;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+  }
+
+  .retro-nav a:hover {
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+  }
+
+  .retro-title {
+    @apply text-2xl text-pink-400 font-bold;
+    text-shadow: 0 0 15px rgba(255, 0, 255, 0.8);
+    background: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .retro-subtitle {
+    @apply text-xl text-cyan-400;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
+  }
+
+  .retro-text {
+    @apply text-green-400;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.3);
+  }
+
+  .retro-accent {
+    @apply text-yellow-400;
+    text-shadow: 0 0 8px rgba(255, 255, 0, 0.6);
+  }
+
+  .retro-error {
+    @apply bg-red-900 border border-red-400 text-red-200 p-4 rounded;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+  }
+
+  .retro-success {
+    @apply bg-green-900 border border-green-400 text-green-200 p-4 rounded;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.4);
+  }
+
+  .retro-grid {
+    @apply grid gap-4;
+    background-image:
+      linear-gradient(rgba(0, 255, 0, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 255, 0, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .retro-stats {
+    @apply text-center p-4 border-2 border-cyan-400;
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.1) 0%, rgba(255, 0, 255, 0.1) 100%);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+  }
+
+  .retro-stats h3 {
+    @apply text-2xl text-cyan-400 font-bold;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
+  }
+
+  .retro-stats p {
+    @apply text-green-400 text-sm;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.3);
+  }
+}
+
+@keyframes borderGlow {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00ff00;
+  border-radius: 0;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00ffff;
+}
+
+/* Selection styling */
+::selection {
+  background: rgba(0, 255, 0, 0.3);
+  color: #00ff00;
+}
+
+/* Focus styles */
+*:focus {
+  outline: 2px solid #00ffff;
+  outline-offset: 2px;
+}
+
+/* Animation for loading states */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.retro-loading {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Glitch effect for special elements */
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+.retro-glitch:hover {
+  animation: glitch 0.3s ease-in-out;
+}
+
+/* Matrix rain effect background */
+.matrix-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.1;
+}
+
+.matrix-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 255, 0, 0.1) 2px,
+    rgba(0, 255, 0, 0.1) 4px
+  );
+  animation: matrixRain 20s linear infinite;
+}
+
+@keyframes matrixRain {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}

@@ -1,0 +1,17 @@
+Django==4.2.23
+djangorestframework==3.15.2
+djangorestframework-simplejwt==5.3.1
+django-cors-headers==4.4.0
+django-two-factor-auth==1.16.0
+social-auth-app-django==5.4.2
+celery[redis]==5.4.0
+redis==5.0.8
+scikit-learn==1.5.2
+Pillow==10.4.0
+django-ratelimit==4.1.0
+sendgrid==6.11.0
+twilio==9.3.2
+google-api-python-client==2.142.0
+python-decouple==3.8
+faker==26.0.0
+pytest-django==4.8.0
